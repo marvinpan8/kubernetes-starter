@@ -118,7 +118,7 @@ $ journalctl -f -u kube-scheduler
 ## 5. 部署CalicoNode（所有节点）
 #### 5.1 简介
 Calico实现了CNI接口，是kubernetes网络方案的一种选择，它一个纯三层的数据中心网络方案（不需要Overlay），并且与OpenStack、Kubernetes、AWS、GCE等IaaS和容器平台都有良好的集成。
-Calico在每一个计算节点利用Linux Kernel实现了一个高效的vRouter来负责数据转发，而每个vRouter通过BGP协议负责把自己上运行的workload的路由信息像整个Calico网络内传播——小规模部署可以直接互联，大规模下可通过指定的BGP route reflector来完成。 这样保证最终所有的workload之间的数据流量都是通过IP路由的方式完成互联的。
+Calico在每一个计算节点利用Linux Kernel实现了一个高效的vRouter来负责数据转发，而每个vRouter通过BGP协议负责把自己上运行的workload的路由信息向整个Calico网络内传播——小规模部署可以直接互联，大规模下可通过指定的BGP route reflector来完成。 这样保证最终所有的workload之间的数据流量都是通过IP路由的方式完成互联的。
 #### 5.2 部署
 **calico是通过系统服务+docker方式完成的**
 ```bash
@@ -147,7 +147,7 @@ IPv4 BGP status
 IPv6 BGP status
 No IPv6 peers found.
 ```
-**查看端口BGP 协议是通过TCP 连接来建立邻居的，因此可以用netstat 命令验证 BGP Peer**
+**查看端口BGP 协议是通过TCP 连接来建立连接的，因此可以用netstat 命令验证 BGP Peer**
 ```bash
 $ netstat -natp|grep ESTABLISHED|grep 179
 tcp        0      0 192.168.1.102:60959     192.168.1.103:179       ESTABLISHED 29680/bird
@@ -332,7 +332,7 @@ $ kubectl create -f target/services/kube-dns.yaml
 请直接参考配置文件中的注释。
 
 #### 10.4 通过dns访问服务
-这了主要演示增加kube-dns后，通过名字访问服务的原理和具体过程。演示启动dns服务和未启动dns服务的通过名字访问情况差别。
+这里主要演示增加kube-dns后，通过名字访问服务的原理和具体过程。演示启动dns服务和未启动dns服务的通过名字访问情况差别。
 具体内容请看[《Docker+k8s微服务容器化实践》][1]吧~
 
 [1]: https://coding.imooc.com/class/198.html
