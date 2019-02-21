@@ -147,7 +147,7 @@ IPv4 BGP status
 IPv6 BGP status
 No IPv6 peers found.
 ```
-**查看端口BGP 协议是通过TCP 连接来建立邻居的，因此可以用netstat 命令验证 BGP Peer**
+**查看端口BGP 协议是通过TCP 连接来建立连接的，因此可以用netstat 命令验证 BGP Peer**
 ```bash
 $ netstat -natp|grep ESTABLISHED|grep 179
 tcp        0      0 192.168.1.102:60959     192.168.1.103:179       ESTABLISHED 29680/bird
