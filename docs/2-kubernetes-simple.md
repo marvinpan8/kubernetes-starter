@@ -332,7 +332,7 @@ $ kubectl create -f target/services/kube-dns.yaml
 请直接参考配置文件中的注释。
 
 #### 10.4 通过dns访问服务
-这了主要演示增加kube-dns后，通过名字访问服务的原理和具体过程。演示启动dns服务和未启动dns服务的通过名字访问情况差别。
+这里主要演示增加kube-dns后，通过名字访问服务的原理和具体过程。演示启动dns服务和未启动dns服务的通过名字访问情况差别。
 具体内容请看[《Docker+k8s微服务容器化实践》][1]吧~
 
 [1]: https://coding.imooc.com/class/198.html
